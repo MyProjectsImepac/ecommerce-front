@@ -1,0 +1,37 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+  }
+  .not-found {
+    text-align: center;
+    background: #fff;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .not-found h1 {
+    font-size: 100px;
+    margin: 0;
+  }
+  .not-found h2 {
+    margin: 20px 0;
+  }
+  .not-found p {
+    margin: 20px 0;
+    font-size: 16px;
+    color: #666;
+  }
+  .not-found a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #5cb85c;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+  .not-found a:hover {
+    background-color: #4cae4c;
+  }
