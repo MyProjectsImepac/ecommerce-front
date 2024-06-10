@@ -20,9 +20,6 @@ export class CustomerAddComponent {
     this.customer = new Customer('', '', '', '', '', '', '', '', '');
   }
 
-  onSubmit() {
-    throw new Error('Method not implemented.');
-  }
 
   onSearchButton() {
     this.customerService.searchCep(this.customer.cep).subscribe({
@@ -33,6 +30,17 @@ export class CustomerAddComponent {
       },
       error: error => {
         console.error('Erro ao buscar CEP', error);
+      }
+    });
+  }
+
+  onSubmit() {
+    this.customerService.save(this.customer).subscribe({
+      next: data => {
+        console.log('Customer saved successfully', data);
+      },
+      error: error => {
+        console.error('Customer not saved ', error);
       }
     });
   }
