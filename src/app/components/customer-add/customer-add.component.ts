@@ -4,22 +4,27 @@ import { HeaderMainComponent } from "../header-main/header-main.component";
 import { CustomerService } from '../../services/customer.service';
 import { Customer } from '../../models/customer.model';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-customer-add',
   standalone: true,
   templateUrl: './customer-add.component.html',
   styleUrl: './customer-add.component.css',
-  imports: [FooterMainComponent, HeaderMainComponent, FormsModule]
+  imports: [CommonModule, FooterMainComponent, HeaderMainComponent, FormsModule]
 })
 export class CustomerAddComponent {
 
   customer: Customer;
+  success: boolean = false
 
   constructor(private customerService: CustomerService) {
     this.customer = new Customer('', '', '', '', '', '', '', '', '');
   }
 
+  clearFields() {
+    this.customer = new Customer('', '', '', '', '', '', '', '', '');
+  }
 
   onSearchButton() {
     this.customerService.searchCep(this.customer.cep).subscribe({
@@ -43,5 +48,7 @@ export class CustomerAddComponent {
         console.error('Customer not saved ', error);
       }
     });
+    this.success = true;
+    this.clearFields();
   }
 }
